@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tsf_social_media_integration/API/auth.dart';
-import 'package:tsf_social_media_integration/homepage.dart';
 import 'package:tsf_social_media_integration/login_screen.dart';
 import 'package:tsf_social_media_integration/profileScreen.dart';
 
