@@ -7,22 +7,35 @@ class AuthProvider {
   final FacebookLogin _facebookLogin = FacebookLogin();
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+  Stream<User> get onAuthStateChanged =>
+      _firebaseAuth.authStateChanges().map((User user) => user);
+
   Future<String> loginWithTwitter() async {
     //
   }
 
-  Future<String> loginWithGoogle() async {
-    //
+  Future<User> loginWithGoogle() async {
+    final GoogleSignInAccount googleAccount = await _googleSignIn.signIn();
+    if (googleAccount == null) return null;
+    final GoogleSignInAuthentication _googleAuth =
+        await googleAccount.authentication;
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: _googleAuth.accessToken,
+      idToken: _googleAuth.idToken,
+    );
+    UserCredential userCredential =
+        await _firebaseAuth.signInWithCredential(credential);
+    return userCredential.user;
   }
 
-  Future<String> loginWithFaceBook() async {
+  Future<User> loginWithFaceBook() async {
     try {
       final result = await _facebookLogin.logIn(['email']);
       final AuthCredential credential =
           FacebookAuthProvider.credential(result.accessToken.token);
       UserCredential userCredential =
           await _firebaseAuth.signInWithCredential(credential);
-      return userCredential.user.toString();
+      return userCredential.user;
     } catch (e) {
       print("EXCEPTION: $e");
       return null;
