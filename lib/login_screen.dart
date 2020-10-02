@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:http/http.dart' as http;
 import 'package:tsf_social_media_integration/widgets/loginButton.dart';
 import 'package:velocity_x/velocity_x.dart';
 
