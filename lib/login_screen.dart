@@ -50,7 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
             LoginButton(
               backgroundColor: Color(0xff32DEF3),
               logoAsset: AssetImage('assets/images/twitter_logo.png'),
-              onPressed: () {},
+              onPressed: () async {
+                user = await auth.loginWithTwitter();
+              },
               text: "Login With Twitter",
             ),
           ],

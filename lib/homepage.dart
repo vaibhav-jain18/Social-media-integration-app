@@ -31,23 +31,4 @@ class _HomePageState extends State<HomePage> {
 
     // return CircularProgressIndicator();
   }
-
-  // void _login() async {
-  //   final TwitterLoginResult result = await twitterLogin.authorize();
-  //   String newMessage;
-  //   switch (result.status) {
-  //     case TwitterLoginStatus.loggedIn:
-  //       newMessage = 'Logged in! username: ${result.session.username}';
-  //       break;
-  //     case TwitterLoginStatus.cancelledByUser:
-  //       newMessage = 'Login cancelled by user.';
-  //       break;
-  //     case TwitterLoginStatus.error:
-  //       newMessage = 'Login error: ${result.errorMessage}';
-  //       break;
-  //   }
-  //   setState(() {
-  //     message = newMessage;
-  //   });
-  // }
 }
