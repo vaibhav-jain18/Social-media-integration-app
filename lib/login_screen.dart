@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:tsf_social_media_integration/API/auth.dart';
 import 'package:tsf_social_media_integration/widgets/loginButton.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -10,11 +11,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isLoggedIn = false;
-
   var profileData;
   List profileLog;
-
-  var facebookLogin = FacebookLogin();
+  final auth = AuthProvider();
 
   void onLoginStatusChanged(bool isLoggedIn, {profileData}) {
     setState(() {
@@ -52,7 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   LoginButton(
                     backgroundColor: Vx.blue800,
                     logoAsset: AssetImage('assets/images/facebook_logo.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      auth.loginWithFaceBook();
+                    },
                     text: "Login With Facebook",
                   ),
                   SizedBox(

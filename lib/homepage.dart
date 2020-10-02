@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:tsf_social_media_integration/login_screen.dart';
@@ -31,6 +32,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+
+    // return CircularProgressIndicator();
   }
 
   static final TwitterLogin twitterLogin = new TwitterLogin(
