@@ -20,18 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text("Login Screen"),
       ),
-      body:
-          //  isLoggedIn
-          // ? Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) => ProfileScreen(
-          //         user: user,
-          //       ),
-          //     ),
-          //   )
-          // :
-          Container(
+      body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,9 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
               logoAsset: AssetImage('assets/images/google_logo1.png'),
               onPressed: () async {
                 user = await auth.loginWithGoogle();
-                // setState(() {
-                //   isLoggedIn = true;
-                // });
               },
               text: "Login With Google",
             ),
@@ -55,9 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
               logoAsset: AssetImage('assets/images/facebook_logo.png'),
               onPressed: () async {
                 user = await auth.loginWithFaceBook();
-                // setState(() {
-                //   isLoggedIn = true;
-                // });
               },
               text: "Login With Facebook",
             ),
