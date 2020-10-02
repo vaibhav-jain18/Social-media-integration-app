@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_twitter_login/flutter_twitter_login.dart';
-import 'package:tsf_social_media_integration/API/auth.dart';
 import 'package:tsf_social_media_integration/login_screen.dart';
 
 class HomePage extends StatefulWidget {
