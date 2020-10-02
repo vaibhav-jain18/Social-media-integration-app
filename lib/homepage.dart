@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+import 'package:tsf_social_media_integration/login_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,7 +18,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             RaisedButton(
               child: Text("Login"),
-              onPressed: _login,
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen())),
             ),
             RaisedButton(
               child: Text("Logout"),
