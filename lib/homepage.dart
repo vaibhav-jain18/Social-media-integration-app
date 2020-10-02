@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+import 'package:tsf_social_media_integration/API/auth.dart';
+import 'package:tsf_social_media_integration/login_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,11 +19,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             RaisedButton(
               child: Text("Login"),
-              onPressed: _login,
-            ),
-            RaisedButton(
-              child: Text("Logout"),
-              onPressed: _logout,
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen())),
             ),
             SizedBox(height: 32.0),
             Text(message),
@@ -29,35 +28,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
 
-  static final TwitterLogin twitterLogin = new TwitterLogin(
-    consumerKey: '94dfxel253BwSWHP8i3of2Fr8',
-    consumerSecret: '9H6PAAnF3P2YjK1WqQyZfW2W7kqkdOXGK4RgWpD0RT55t72Ygk',
-  );
-  void _login() async {
-    final TwitterLoginResult result = await twitterLogin.authorize();
-    String newMessage;
-    switch (result.status) {
-      case TwitterLoginStatus.loggedIn:
-        newMessage = 'Logged in! username: ${result.session.username}';
-        break;
-      case TwitterLoginStatus.cancelledByUser:
-        newMessage = 'Login cancelled by user.';
-        break;
-      case TwitterLoginStatus.error:
-        newMessage = 'Login error: ${result.errorMessage}';
-        break;
-    }
-    setState(() {
-      message = newMessage;
-    });
-  }
-
-  void _logout() async {
-    await twitterLogin.logOut();
-    setState(() {
-      message = 'Logged out.';
-    });
+    // return CircularProgressIndicator();
   }
 }
