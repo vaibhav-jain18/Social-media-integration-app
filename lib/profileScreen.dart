@@ -19,7 +19,11 @@ class ProfileScreen extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child: Image.network("${user.photoURL}"),
+                width: 200,
+                height: 200,
+                child: Image.network(
+                  "${user.photoURL}",
+                ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
@@ -27,22 +31,45 @@ class ProfileScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        child: Text("Your name : "),
+                        child: Text("Your name : ",
+                            style: TextStyle(fontSize: 20.0)),
                       ),
                       Container(
-                        child: Text("${user.displayName}"),
+                        child: Text("${user.displayName}",
+                            style: TextStyle(fontSize: 20.0)),
                       ),
                     ],
                   ),
                 ),
               ),
-
-              RaisedButton(
-                child: "Logout".text.xl.make(),
-                onPressed: () {
-                  AuthProvider().logout();
-                  // Navigator.pop(context);
-                },
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                child: Center(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(
+                          "Your email : ",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      Container(
+                        child: Text("${user.email}",
+                            style: TextStyle(fontSize: 20.0)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 15, 10, 15),
+                child: RaisedButton(
+                  child: "Logout".text.xl.make(),
+                  onPressed: () {
+                    AuthProvider().logout();
+                    // Navigator.pop(context);
+                  },
+                ),
               )
             ],
           ),
