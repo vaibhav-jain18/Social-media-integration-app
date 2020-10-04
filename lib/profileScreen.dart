@@ -15,17 +15,28 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              "User Logged in ${user.displayName}"
-                  .text
-                  .xl2
-                  .black
-                  .semiBold
-                  .wide
-                  .make(),
-              20.heightBox,
+              Container(
+                child: Image.network("${user.photoURL}"),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                child: Center(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text("Your name : "),
+                      ),
+                      Container(
+                        child: Text("${user.displayName}"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
               RaisedButton(
                 child: "Logout".text.xl.make(),
                 onPressed: () {
