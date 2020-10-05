@@ -15,23 +15,61 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              "User Logged in ${user.displayName}"
-                  .text
-                  .xl2
-                  .black
-                  .semiBold
-                  .wide
-                  .make(),
-              20.heightBox,
-              RaisedButton(
-                child: "Logout".text.xl.make(),
-                onPressed: () {
-                  AuthProvider().logout();
-                  // Navigator.pop(context);
-                },
+              Container(
+                width: 200,
+                height: 200,
+                child: Image.network(
+                  "${user.photoURL}",
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                child: Center(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text("Your name : ",
+                            style: TextStyle(fontSize: 20.0)),
+                      ),
+                      Container(
+                        child: Text("${user.displayName}",
+                            style: TextStyle(fontSize: 20.0)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                child: Center(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(
+                          "Your email : ",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      Container(
+                        child: Text("${user.email}",
+                            style: TextStyle(fontSize: 20.0)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 15, 10, 15),
+                child: RaisedButton(
+                  child: "Logout".text.xl.make(),
+                  onPressed: () {
+                    AuthProvider().logout();
+                    // Navigator.pop(context);
+                  },
+                ),
               )
             ],
           ),
